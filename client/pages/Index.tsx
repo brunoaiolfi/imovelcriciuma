@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function Index() {
   const [activeTab, setActiveTab] = useState("Quartos");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [showContactModal, setShowContactModal] = useState(false);
 
   const tabs = ["Quartos", "Salas de estar", "Cozinhas", "Banheiros", "Escritórios", "Áreas de lazer", "Exteriores"];
 
@@ -61,11 +62,18 @@ export default function Index() {
     ]
   };
 
+  const handleContactClick = () => {
+    setShowContactModal(true);
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-sans">
       {/* Header */}
       <div className="bg-gray-50 px-4 sm:px-6 py-3 sm:py-4 flex justify-end">
-        <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 sm:px-6 py-2 rounded-md font-medium transition-colors text-sm sm:text-base">
+        <button 
+          onClick={handleContactClick}
+          className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 sm:px-6 py-2 rounded-md font-medium transition-colors text-sm sm:text-base font-sans"
+        >
           Entrar em contato
         </button>
       </div>
@@ -84,74 +92,74 @@ export default function Index() {
         {/* Property Description */}
         <div className="mb-8 sm:mb-12">
           <div className="bg-gray-50 rounded-lg p-6 sm:p-8">
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              🏡 Residência de Alto Padrão com Vista Privilegiada para a Serra – 326 m² de puro conforto!
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-title tracking-tight">
+              Residência de Alto Padrão com Vista Privilegiada para a Serra – 326 m²
             </h1>
             
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              Localizada em uma região calma, segura e silenciosa, esta casa de alto padrão com 326 m² de área construída foi cuidadosamente planejada para oferecer sofisticação, conforto e integração com a natureza — tudo isso a apenas 5 minutos do centro de Criciúma.
+            <p className="text-gray-700 mb-6 leading-relaxed font-sans text-base">
+              Localizada em uma região tranquila e segura, esta residência de alto padrão com 326 m² de área construída foi projetada para oferecer sofisticação, conforto e integração com a natureza, a apenas 5 minutos do centro de Criciúma.
             </p>
 
             <div className="mb-6">
-              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">Destaques do imóvel:</h2>
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 font-title">Características do Imóvel:</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base">
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🛏️</span>
-                  <span>1 Suíte master com amplo closet e banheira com vista para a Serra</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">1 Suíte master com closet amplo e banheira com vista para a Serra</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🚪</span>
-                  <span>2 Demi-suítes com acesso direto à área da piscina</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">2 Demi-suítes com acesso direto à área da piscina</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🚿</span>
-                  <span>3 Banheiros no total, incluindo um banheiro social</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">3 Banheiros no total, incluindo banheiro social</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🛋️</span>
-                  <span>Sala de estar ampla e elegante, ideal para receber com estilo</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">Sala de estar ampla e elegante</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🍽️</span>
-                  <span>Cozinha com espaço gourmet integrada, também com vista para a Serra</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">Cozinha gourmet integrada com vista para a Serra</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">💼</span>
-                  <span>Home office reservado, perfeito para quem trabalha de casa</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">Home office reservado</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🌊</span>
-                  <span>Piscina aquecida com borda infinita e visão panorâmica da Serra</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">Piscina aquecida com borda infinita e vista panorâmica</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🪟</span>
-                  <span>Aberturas em PVC, garantindo isolamento térmico e acústico</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">Aberturas em PVC para isolamento térmico e acústico</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🚗</span>
-                  <span>Garagem coberta para 2 carros e 1 moto, mais espaço externo para 2 veículos adicionais</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">Garagem coberta para 2 carros e 1 moto, mais espaço para 2 veículos adicionais</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">🔥</span>
-                  <span>Sistema de aquecimento a gás</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">Sistema de aquecimento a gás</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-emerald-600">⚙️</span>
-                  <span>Infraestrutura pronta para automação residencial e espera para energia solar</span>
+                  <span className="text-emerald-600">•</span>
+                  <span className="font-sans">Infraestrutura preparada para automação residencial e energia solar</span>
                 </div>
               </div>
             </div>
 
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              ✨ Esta residência une design moderno, acabamentos refinados e uma localização privilegiada, sendo a escolha ideal para quem busca viver com conforto, segurança e uma paisagem inspiradora todos os dias.
+            <p className="text-gray-700 mb-6 leading-relaxed font-sans text-base">
+              Esta residência combina design moderno, acabamentos refinados e localização privilegiada, oferecendo o equilíbrio perfeito entre conforto, segurança e contato com a natureza.
             </p>
 
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 sm:p-6">
-              <h3 className="font-semibold text-amber-800 mb-2">Informações Importantes:</h3>
+              <h3 className="font-semibold text-amber-800 mb-2 font-title">Informações Importantes:</h3>
               <div className="text-sm sm:text-base text-amber-700 space-y-2">
-                <p><strong>Imóvel em fase de construção</strong> - Esta residência está atualmente em construção, com previsão de entrega conforme cronograma da obra.</p>
-                <p><strong>Alterações no projeto:</strong> Nos reservamos o direito de realizar alterações no projeto, sejam elas estruturais, estéticas ou de acabamentos, sem aviso prévio, de acordo com a viabilidade técnica ou aprimoramento do padrão construtivo.</p>
-                <p><strong>Entrega:</strong> O imóvel será entregue sem mobiliário e itens de decoração. As imagens utilizadas nos materiais de divulgação são referências do potencial do imóvel após finalização e personalização pelo futuro proprietário — que poderá transformar esse espaço em um verdadeiro lar, com seu estilo e personalidade.</p>
+                <p className="font-sans"><strong>Imóvel em construção:</strong> Esta residência está atualmente em fase de construção, com previsão de entrega conforme cronograma da obra.</p>
+                <p className="font-sans"><strong>Alterações no projeto:</strong> Reservamo-nos o direito de realizar alterações no projeto, sejam estruturais, estéticas ou de acabamentos, conforme viabilidade técnica ou aprimoramento do padrão construtivo.</p>
+                <p className="font-sans"><strong>Entrega:</strong> O imóvel será entregue sem mobiliário e itens de decoração. As imagens utilizadas são referências do potencial do imóvel após finalização e personalização pelo futuro proprietário.</p>
               </div>
             </div>
           </div>
@@ -159,39 +167,39 @@ export default function Index() {
 
         {/* Property Details */}
         <div className="mb-8 sm:mb-12">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">Detalhes da propriedade</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6 font-title">Detalhes da propriedade</h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-y-6 sm:gap-x-8">
             <div>
-              <div className="text-sm text-gray-600 mb-1">Área total</div>
-              <div className="font-medium text-gray-900">326 m²</div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Área total</div>
+              <div className="font-medium text-gray-900 font-sans">326 m²</div>
             </div>
             <div>
-              <div className="text-sm text-gray-600 mb-1">Demi-Suítes</div>
-              <div className="font-medium text-gray-900">2</div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Demi-Suítes</div>
+              <div className="font-medium text-gray-900 font-sans">2</div>
             </div>
             <div>
-              <div className="text-sm text-gray-600 mb-1">Suítes master</div>
-              <div className="font-medium text-gray-900">1</div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Suítes master</div>
+              <div className="font-medium text-gray-900 font-sans">1</div>
             </div>
             <div>
-              <div className="text-sm text-gray-600 mb-1">Banheiros</div>
-              <div className="font-medium text-gray-900">3</div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Banheiros</div>
+              <div className="font-medium text-gray-900 font-sans">3</div>
             </div>
             <div>
-              <div className="text-sm text-gray-600 mb-1">Espaços na garagem</div>
-              <div className="font-medium text-gray-900">3</div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Espaços na garagem</div>
+              <div className="font-medium text-gray-900 font-sans">3</div>
             </div>
             <div>
-              <div className="text-sm text-gray-600 mb-1">Localização</div>
-              <div className="font-medium text-gray-900">Visconde de cairu, 56</div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Localização</div>
+              <div className="font-medium text-gray-900 font-sans">Visconde de cairu, 56</div>
             </div>
           </div>
         </div>
 
         {/* Gallery Section */}
         <div className="mb-8 sm:mb-12">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">Galeria de imagens</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6 font-title">Galeria de imagens</h2>
           
           {/* Gallery Tabs */}
           <div className="flex flex-wrap gap-2 sm:gap-6 mb-4 sm:mb-6 border-b overflow-x-auto">
@@ -199,7 +207,7 @@ export default function Index() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`pb-2 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`pb-2 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap font-sans ${
                   activeTab === tab
                     ? "text-gray-900 border-b-2 border-gray-900"
                     : "text-gray-600 hover:text-gray-900"
@@ -227,11 +235,14 @@ export default function Index() {
 
         {/* Call to Action */}
         <div className="text-center">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Gostou do que viu?</h2>
-          <p className="text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto px-4 sm:px-0">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 font-title">Gostou do que viu?</h2>
+          <p className="text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto px-4 sm:px-0 font-sans text-base">
             Entre em contato conosco pelo WhatsApp ou escaneie o QR code para mais informações.
           </p>
-          <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-md font-medium transition-colors inline-flex items-center gap-2 text-sm sm:text-base">
+          <button 
+            onClick={handleContactClick}
+            className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-md font-medium transition-colors inline-flex items-center gap-2 text-sm sm:text-base font-sans"
+          >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
             </svg>
@@ -239,6 +250,54 @@ export default function Index() {
           </button>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowContactModal(false)}
+        >
+          <div className="bg-white rounded-lg p-6 sm:p-8 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-semibold text-gray-900 font-title">Entre em Contato</h3>
+              <button
+                onClick={() => setShowContactModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="text-center">
+              <div className="mb-6">
+                <img
+                  src="/client/assets/qrCodeContato.jpeg"
+                  alt="QR Code para WhatsApp"
+                  className="w-48 h-48 mx-auto rounded-lg shadow-lg"
+                />
+              </div>
+              
+              <p className="text-gray-600 mb-4 font-sans text-sm">
+                Escaneie o QR code acima ou clique no link abaixo para entrar em contato via WhatsApp
+              </p>
+              
+              <a
+                href="https://wa.me/554891665589"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-md font-medium transition-colors text-sm font-sans"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                </svg>
+                Abrir WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Image Modal */}
       {selectedImage && (
