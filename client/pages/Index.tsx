@@ -9,56 +9,56 @@ export default function Index() {
 
   const galleryImages = {
     "Quartos": [
-      "/client/assets/quarto1.png",
-      "/client/assets/quarto2.jpg",
-      "/client/assets/quarto3.jpg",
-      "/client/assets/quarto4.png",
-      "/client/assets/quarto5.png",
-      "/client/assets/quarto6.png",
-      "/client/assets/quarto7.png"
+      "/assets/quarto1.png",
+      "/assets/quarto2.jpg",
+      "/assets/quarto3.jpg",
+      "/assets/quarto4.png",
+      "/assets/quarto5.png",
+      "/assets/quarto6.png",
+      "/assets/quarto7.png"
     ],
     "Salas de estar": [
-      "/client/assets/sala1.jpg",
-      "/client/assets/sala2.jpg",
-      "/client/assets/sala3.jpg",
-      "/client/assets/sala4.jpg"
+      "/assets/sala1.jpg",
+      "/assets/sala2.jpg",
+      "/assets/sala3.jpg",
+      "/assets/sala4.jpg"
     ],
     "Cozinhas": [
-      "/client/assets/cozinha1.jpg",
-      "/client/assets/cozinha2.jpg",
-      "/client/assets/cozinha3.jpg",
-      "/client/assets/cozinha4.jpg"
+      "/assets/cozinha1.jpg",
+      "/assets/cozinha2.jpg",
+      "/assets/cozinha3.jpg",
+      "/assets/cozinha4.jpg"
     ],
     "Banheiros": [
-      "/client/assets/banheiro1.jpg",
-      "/client/assets/banheiro2.jpg",
-      "/client/assets/banheiro3.jpg",
-      "/client/assets/banheirosocial1.jpg",
-      "/client/assets/banheirosocial2.jpg",
-      "/client/assets/banheirosocial3.jpg"
+      "/assets/banheiro1.jpg",
+      "/assets/banheiro2.jpg",
+      "/assets/banheiro3.jpg",
+      "/assets/banheirosocial1.jpg",
+      "/assets/banheirosocial2.jpg",
+      "/assets/banheirosocial3.jpg"
     ],
     "Escritórios": [
-      "/client/assets/escritorio.jpg",
-      "/client/assets/escritorio2.jpg",
-      "/client/assets/escritorio3.jpg",
-      "/client/assets/escritorio4.jpg",
-      "/client/assets/escritorio5.jpg"
+      "/assets/escritorio.jpg",
+      "/assets/escritorio2.jpg",
+      "/assets/escritorio3.jpg",
+      "/assets/escritorio4.jpg",
+      "/assets/escritorio5.jpg"
     ],
     "Áreas de lazer": [
-      "/client/assets/areadelazer1.jpg",
-      "/client/assets/areadelazer2.jpg",
-      "/client/assets/piscina.jpg"
+      "/assets/areadelazer1.jpg",
+      "/assets/areadelazer2.jpg",
+      "/assets/piscina.jpg"
     ],
     "Exteriores": [
-      "/client/assets/frente.jpg",
-      "/client/assets/frente1.jpg",
-      "/client/assets/frente2.jpg",
-      "/client/assets/frente3.jpg",
-      "/client/assets/frente4.jpg",
-      "/client/assets/fundos1.jpg",
-      "/client/assets/terreno.jpg",
-      "/client/assets/terreno2.jpg",
-      "/client/assets/terreno3.jpg"
+      "/assets/frente.jpg",
+      "/assets/frente1.jpg",
+      "/assets/frente2.jpg",
+      "/assets/frente3.jpg",
+      "/assets/frente4.jpg",
+      "/assets/fundos1.jpg",
+      "/assets/terreno.jpg",
+      "/assets/terreno2.jpg",
+      "/assets/terreno3.jpg"
     ]
   };
 
@@ -83,7 +83,7 @@ export default function Index() {
         {/* Hero Image */}
         <div className="mb-6 sm:mb-8">
           <img
-            src={"/client/assets/frente.jpg"}
+            src={"/assets/frente.jpg"}
             alt="Modern house exterior"
             className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
           />
@@ -273,7 +273,7 @@ export default function Index() {
             <div className="text-center">
               <div className="mb-6">
                 <img
-                  src="/client/assets/qrCodeContato.jpeg"
+                  src="/assets/qrCodeContato.jpeg"
                   alt="QR Code para WhatsApp"
                   className="w-48 h-48 mx-auto rounded-lg shadow-lg"
                 />
