@@ -1,21 +1,29 @@
 import { useState } from "react";
 
 export default function Index() {
-  const [activeTab, setActiveTab] = useState("Quartos");
+  const [activeTab, setActiveTab] = useState("Exteriores");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showContactModal, setShowContactModal] = useState(false);
 
-  const tabs = ["Quartos", "Salas de estar", "Cozinhas", "Banheiros", "Escritórios", "Áreas de lazer", "Exteriores"];
+  const tabs = ["Exteriores", "Cozinhas", "Salas de estar", "Áreas de lazer", "Quartos", "Suítes", "Banheiros", "Escritórios"];
 
   const galleryImages = {
-    "Quartos": [
-      "/assets/quarto1.png",
-      "/assets/quarto2.jpg",
-      "/assets/quarto3.jpg",
-      "/assets/quarto4.png",
-      "/assets/quarto5.png",
-      "/assets/quarto6.png",
-      "/assets/quarto7.png"
+    "Exteriores": [
+      "/assets/frente.jpg",
+      "/assets/frente1.jpg",
+      "/assets/frente2.jpg",
+      "/assets/frente3.jpg",
+      "/assets/frente4.jpg",
+      "/assets/fundos1.jpg",
+      "/assets/terreno.jpg",
+      "/assets/terreno2.jpg",
+      "/assets/terreno3.jpg"
+    ],
+    "Cozinhas": [
+      "/assets/cozinha1.jpg",
+      "/assets/cozinha2.jpg",
+      "/assets/cozinha3.jpg",
+      "/assets/cozinha4.jpg"
     ],
     "Salas de estar": [
       "/assets/sala1.jpg",
@@ -23,11 +31,21 @@ export default function Index() {
       "/assets/sala3.jpg",
       "/assets/sala4.jpg"
     ],
-    "Cozinhas": [
-      "/assets/cozinha1.jpg",
-      "/assets/cozinha2.jpg",
-      "/assets/cozinha3.jpg",
-      "/assets/cozinha4.jpg"
+    "Áreas de lazer": [
+      "/assets/areadelazer1.jpg",
+      "/assets/areadelazer2.jpg",
+      "/assets/piscina.jpg"
+    ],
+    "Quartos": [
+      "/assets/quarto2.jpg",
+      "/assets/quarto3.jpg"
+    ],
+    "Suítes": [
+      "/assets/quarto1.png",
+      "/assets/quarto4.png",
+      "/assets/quarto5.png",
+      "/assets/quarto6.png",
+      "/assets/quarto7.png"
     ],
     "Banheiros": [
       "/assets/banheiro1.jpg",
@@ -43,22 +61,6 @@ export default function Index() {
       "/assets/escritorio3.jpg",
       "/assets/escritorio4.jpg",
       "/assets/escritorio5.jpg"
-    ],
-    "Áreas de lazer": [
-      "/assets/areadelazer1.jpg",
-      "/assets/areadelazer2.jpg",
-      "/assets/piscina.jpg"
-    ],
-    "Exteriores": [
-      "/assets/frente.jpg",
-      "/assets/frente1.jpg",
-      "/assets/frente2.jpg",
-      "/assets/frente3.jpg",
-      "/assets/frente4.jpg",
-      "/assets/fundos1.jpg",
-      "/assets/terreno.jpg",
-      "/assets/terreno2.jpg",
-      "/assets/terreno3.jpg"
     ]
   };
 
@@ -69,7 +71,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Header */}
-      <div className="bg-gray-50 px-4 sm:px-6 py-3 sm:py-4 flex justify-end">
+      <div className="bg-amber-50 px-4 sm:px-6 py-3 sm:py-4 flex justify-end">
         <button 
           onClick={handleContactClick}
           className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 sm:px-6 py-2 rounded-md font-medium transition-colors text-sm sm:text-base font-sans"
@@ -80,20 +82,25 @@ export default function Index() {
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
-        {/* Hero Image */}
+        {/* Hero Video */}
         <div className="mb-6 sm:mb-8">
-          <img
-            src={"/assets/frente.jpg"}
-            alt="Modern house exterior"
+          <video
+            src="/assets/videoTour.MOV"
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
-          />
+          >
+            Seu navegador não suporta vídeos HTML5.
+          </video>
         </div>
 
         {/* Property Description */}
         <div className="mb-8 sm:mb-12">
-          <div className="bg-gray-50 rounded-lg p-6 sm:p-8">
+          <div className="bg-amber-50 rounded-lg p-6 sm:p-8">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-title tracking-tight">
-              Residência de Alto Padrão com Vista Privilegiada para a Serra – 326 m²
+              Residência de Alto Padrão com Vista Privilegiada para a Serra - 326 m²
             </h1>
             
             <p className="text-gray-700 mb-6 leading-relaxed font-sans text-base">
@@ -171,16 +178,20 @@ export default function Index() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-y-6 sm:gap-x-8">
             <div>
-              <div className="text-sm text-gray-600 mb-1 font-sans">Área total</div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Área construída</div>
               <div className="font-medium text-gray-900 font-sans">326 m²</div>
+            </div>
+            <div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Área total do terreno</div>
+              <div className="font-medium text-gray-900 font-sans">420 m²</div>
+            </div>
+            <div>
+              <div className="text-sm text-gray-600 mb-1 font-sans">Suíte master</div>
+              <div className="font-medium text-gray-900 font-sans">1</div>
             </div>
             <div>
               <div className="text-sm text-gray-600 mb-1 font-sans">Demi-Suítes</div>
               <div className="font-medium text-gray-900 font-sans">2</div>
-            </div>
-            <div>
-              <div className="text-sm text-gray-600 mb-1 font-sans">Suítes master</div>
-              <div className="font-medium text-gray-900 font-sans">1</div>
             </div>
             <div>
               <div className="text-sm text-gray-600 mb-1 font-sans">Banheiros</div>
