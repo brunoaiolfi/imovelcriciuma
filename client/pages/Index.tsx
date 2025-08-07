@@ -1,9 +1,12 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("Exteriores");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+
 
   const tabs = ["Exteriores", "Cozinhas", "Salas de estar", "Áreas de lazer", "Quartos", "Suítes", "Banheiros", "Escritórios"];
 
@@ -71,7 +74,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Header */}
-      <div className="bg-amber-50 px-4 sm:px-6 py-3 sm:py-4 flex justify-end">
+      <div className="px-4 sm:px-6 py-3 sm:py-4 flex justify-end">
         <button 
           onClick={handleContactClick}
           className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 sm:px-6 py-2 rounded-md font-medium transition-colors text-sm sm:text-base font-sans"
@@ -84,16 +87,32 @@ export default function Index() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {/* Hero Video */}
         <div className="mb-6 sm:mb-8">
-          <video
-            src="/assets/videoTour.MOV"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
-          >
-            Seu navegador não suporta vídeos HTML5.
-          </video>
+          {!videoError ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls={false}
+              preload="metadata"
+              className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
+              onError={(e) => {
+                console.error('Erro ao carregar vídeo:', e);
+                setVideoError(true);
+              }}
+              onLoadStart={() => console.log('Iniciando carregamento do vídeo')}
+              onCanPlay={() => console.log('Vídeo pode ser reproduzido')}
+            >
+              <source src="/assets/videoTour.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeos HTML5.
+            </video>
+          ) : (
+            <img 
+              src="/assets/frente.jpg" 
+              alt="Vista frontal da residência"
+              className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
+            />
+          )}
         </div>
 
         {/* Property Description */}
@@ -174,9 +193,10 @@ export default function Index() {
 
         {/* Property Details */}
         <div className="mb-8 sm:mb-12">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6 font-title">Detalhes da propriedade</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-amber-800 mb-4 sm:mb-6 font-title">Detalhes da propriedade</h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-y-6 sm:gap-x-8">
+          <div className="bg-amber-50 rounded-lg p-6 sm:p-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-y-6 sm:gap-x-8">
             <div>
               <div className="text-sm text-gray-600 mb-1 font-sans">Área construída</div>
               <div className="font-medium text-gray-900 font-sans">326 m²</div>
@@ -203,14 +223,15 @@ export default function Index() {
             </div>
             <div>
               <div className="text-sm text-gray-600 mb-1 font-sans">Localização</div>
-              <div className="font-medium text-gray-900 font-sans">Visconde de cairu, 56</div>
+              <div className="font-medium text-gray-900 font-sans">Rua Giovanni Angelo Ortolan, Nº: 65, Santa Catarina</div>
+            </div>
             </div>
           </div>
         </div>
 
         {/* Gallery Section */}
         <div className="mb-8 sm:mb-12">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6 font-title">Galeria de imagens</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-amber-800 mb-4 sm:mb-6 font-title">Galeria de imagens</h2>
           
           {/* Gallery Tabs */}
           <div className="flex flex-wrap gap-2 sm:gap-6 mb-4 sm:mb-6 border-b overflow-x-auto">
@@ -220,8 +241,8 @@ export default function Index() {
                 onClick={() => setActiveTab(tab)}
                 className={`pb-2 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap font-sans ${
                   activeTab === tab
-                    ? "text-gray-900 border-b-2 border-gray-900"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "text-amber-700 border-b-2 border-amber-700"
+                    : "text-gray-600 hover:text-amber-700"
                 }`}
               >
                 {tab}
@@ -246,7 +267,7 @@ export default function Index() {
 
         {/* Call to Action */}
         <div className="text-center">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 font-title">Gostou do que viu?</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-amber-800 mb-3 sm:mb-4 font-title">Gostou do que viu?</h2>
           <p className="text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto px-4 sm:px-0 font-sans text-base">
             Entre em contato conosco pelo WhatsApp ou escaneie o QR code para mais informações.
           </p>
