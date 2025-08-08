@@ -1,69 +1,97 @@
 import React, { useState, useEffect } from "react";
 
 export default function Index() {
-  const [activeTab, setActiveTab] = useState("Exteriores");
+  const [activeTab, setActiveTab] = useState("Tour Virtual");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [videoError, setVideoError] = useState(false);
 
-
-
-  const tabs = ["Exteriores", "Cozinhas", "Salas de estar", "Áreas de lazer", "Quartos", "Suítes", "Banheiros", "Escritórios"];
+  const tabs = ["Tour Virtual", "Exteriores", "Cozinhas", "Salas", "Áreas de Lazer", "Quartos", "Suítes", "Banheiros", "Escritórios", "Garagem", "Demisuítes", "Lavanderia"];
 
   const galleryImages = {
+    "Tour Virtual": [
+      "/assets/videoTour.mp4"
+    ],
     "Exteriores": [
-      "/assets/frente.jpg",
-      "/assets/frente1.jpg",
-      "/assets/frente2.jpg",
-      "/assets/frente3.jpg",
-      "/assets/frente4.jpg",
-      "/assets/fundos1.jpg",
-      "/assets/terreno.jpg",
-      "/assets/terreno2.jpg",
-      "/assets/terreno3.jpg"
+      "/assets/externa1.jpg",
+      "/assets/externa1(1).jpg",
+      "/assets/externa2.jpg",
+      "/assets/externa2(1).jpg",
+      "/assets/externa3.jpg",
+      "/assets/externa4.jpg",
+      "/assets/externa5.jpg",
+      "/assets/externa6.jpg",
+      "/assets/externa7.jpg"
     ],
     "Cozinhas": [
-      "/assets/cozinha1.jpg",
-      "/assets/cozinha2.jpg",
-      "/assets/cozinha3.jpg",
-      "/assets/cozinha4.jpg"
+      "/assets/Cozinha1.jpg",
+      "/assets/Cozinha2.jpg",
+      "/assets/Cozinha3.jpg",
+      "/assets/Cozinha4.jpg"
     ],
-    "Salas de estar": [
-      "/assets/sala1.jpg",
-      "/assets/sala2.jpg",
-      "/assets/sala3.jpg",
-      "/assets/sala4.jpg"
+    "Salas": [
+      "/assets/Sala1.jpg",
+      "/assets/Sala2.jpg",
+      "/assets/Sala3.jpg",
+      "/assets/Sala4.jpg"
     ],
-    "Áreas de lazer": [
-      "/assets/areadelazer1.jpg",
-      "/assets/areadelazer2.jpg",
-      "/assets/piscina.jpg"
+    "Áreas de Lazer": [
+      "/assets/lazer1.jpg",
+      "/assets/lazer2.jpg",
+      "/assets/lazer3.jpg"
     ],
     "Quartos": [
-      "/assets/quarto2.jpg",
-      "/assets/quarto3.jpg"
+      "/assets/Quarto1.png",
+      "/assets/Quarto2.jpg",
+      "/assets/Quarto3.png",
+      "/assets/Quarto4.jpg",
+      "/assets/quarto5.jpg",
+      "/assets/quarto6.jpg",
+      "/assets/Quartinho1.png",
+      "/assets/Quartinho2.png",
+      "/assets/Quartinho3.png"
     ],
     "Suítes": [
-      "/assets/quarto1.png",
-      "/assets/quarto4.png",
-      "/assets/quarto5.png",
-      "/assets/quarto6.png",
-      "/assets/quarto7.png"
+      "/assets/Suite1.jpg",
+      "/assets/Suite2.jpg",
+      "/assets/Suite3.jpg",
+      "/assets/Suite4.jpg",
+      "/assets/Suite4(1).jpg",
+      "/assets/Suite5.jpg",
+      "/assets/Suite6.jpg",
+      "/assets/Suite7.jpg",
+      "/assets/Suite8.jpg",
+      "/assets/Suite9.jpg"
     ],
     "Banheiros": [
-      "/assets/banheiro1.jpg",
-      "/assets/banheiro2.jpg",
-      "/assets/banheiro3.jpg",
-      "/assets/banheirosocial1.jpg",
-      "/assets/banheirosocial2.jpg",
-      "/assets/banheirosocial3.jpg"
+      "/assets/Banheiro1.jpg",
+      "/assets/Banheiro2.jpg",
+      "/assets/Banheiro3.jpg"
     ],
     "Escritórios": [
-      "/assets/escritorio.jpg",
-      "/assets/escritorio2.jpg",
-      "/assets/escritorio3.jpg",
-      "/assets/escritorio4.jpg",
-      "/assets/escritorio5.jpg"
+      "/assets/Escritorio1.jpg",
+      "/assets/Escritorio2.jpg",
+      "/assets/Escritorio3.jpg",
+      "/assets/Escritorio4.jpg"
+    ],
+    "Garagem": [
+      "/assets/garagem1.jpg",
+      "/assets/garagem2.jpg",
+      "/assets/garagem3.jpg",
+      "/assets/garagem4.jpg",
+      "/assets/garagem5.jpg",
+      "/assets/hallGaragem1.jpg",
+      "/assets/hallGaragem2.jpg",
+      "/assets/hallGaragem3.jpg"
+    ],
+    "Demisuítes": [
+      "/assets/demisuite1.jpg",
+      "/assets/demisuite2.jpg",
+      "/assets/demisuite3.jpg",
+      "/assets/demisuite4.jpg"
+    ],
+    "Lavanderia": [
+      "/assets/lavanderia.jpg"
     ]
   };
 
@@ -251,18 +279,31 @@ export default function Index() {
           </div>
 
           {/* Gallery Images */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4">
-            {galleryImages[activeTab as keyof typeof galleryImages]?.map((image, index) => (
-              <div key={index} className="aspect-square">
-                <img
-                  src={image}
-                  alt={`${activeTab} ${index + 1}`}
-                  className="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-                  onClick={() => setSelectedImage(image)}
-                />
-              </div>
-            ))}
-          </div>
+          {activeTab === "Tour Virtual" ? (
+            <div className="w-full">
+              <video
+                controls
+                className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
+                preload="metadata"
+              >
+                <source src="/assets/videoTour.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeos HTML5.
+              </video>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4">
+              {galleryImages[activeTab as keyof typeof galleryImages]?.map((image, index) => (
+                <div key={index} className="aspect-square">
+                  <img
+                    src={image}
+                    alt={`${activeTab} ${index + 1}`}
+                    className="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+                    onClick={() => setSelectedImage(image)}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Call to Action */}
