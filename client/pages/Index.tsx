@@ -5,6 +5,7 @@ export default function Index() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [videoError, setVideoError] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   const tabs = ["Tour Virtual", "Exteriores", "Cozinha", "Sala", "Área de Lazer", "Quartos", "Suíte", "Banheiro Social", "Escritório", "Garagem", "Lavanderia"];
 
@@ -14,9 +15,7 @@ export default function Index() {
     ],
     "Exteriores": [
       "/assets/externa1.jpg",
-      "/assets/externa1(1).jpg",
       "/assets/externa2.jpg",
-      "/assets/externa2(1).jpg",
       "/assets/externa3.jpg",
       "/assets/externa4.jpg",
       "/assets/externa5.jpg",
@@ -60,7 +59,6 @@ export default function Index() {
       "/assets/Suite2.jpg",
       "/assets/Suite3.jpg",
       "/assets/Suite4.jpg",
-      "/assets/Suite4(1).jpg",
       "/assets/Suite5.jpg",
       "/assets/Suite6.jpg",
       "/assets/Suite7.jpg",
@@ -290,16 +288,30 @@ export default function Index() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4">
-              {galleryImages[activeTab as keyof typeof galleryImages]?.map((image, index) => (
-                <div key={index} className="aspect-square">
-                  <img
-                    src={image}
-                    alt={`${activeTab} ${index + 1}`}
-                    className="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-                    onClick={() => setSelectedImage(image)}
-                  />
-                </div>
-              ))}
+              {galleryImages[activeTab as keyof typeof galleryImages]?.map((image, index) => {
+                const hasError = imageErrors.has(image);
+                return (
+                  <div key={index} className="aspect-square">
+                    {!hasError ? (
+                      <img
+                        src={image}
+                        alt={`${activeTab} ${index + 1}`}
+                        className="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+                        onClick={() => setSelectedImage(image)}
+                        onError={(e) => {
+                          console.error(`Erro ao carregar imagem: ${image}`);
+                          setImageErrors(prev => new Set(prev).add(image));
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
+                        <span className="text-gray-500 text-sm">Imagem não disponível</span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
