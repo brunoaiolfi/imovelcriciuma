@@ -6,7 +6,7 @@ export default function Index() {
   const [showContactModal, setShowContactModal] = useState(false);
   const [videoError, setVideoError] = useState(false);
 
-  const tabs = ["Tour Virtual", "Exteriores", "Cozinhas", "Salas", "Áreas de Lazer", "Quartos", "Suítes", "Banheiros", "Escritórios", "Garagem", "Demisuítes", "Lavanderia"];
+  const tabs = ["Tour Virtual", "Exteriores", "Cozinha", "Sala", "Área de Lazer", "Quartos", "Suíte", "Banheiro Social", "Escritório", "Garagem", "Lavanderia"];
 
   const galleryImages = {
     "Tour Virtual": [
@@ -23,19 +23,19 @@ export default function Index() {
       "/assets/externa6.jpg",
       "/assets/externa7.jpg"
     ],
-    "Cozinhas": [
+    "Cozinha": [
       "/assets/Cozinha1.jpg",
       "/assets/Cozinha2.jpg",
       "/assets/Cozinha3.jpg",
       "/assets/Cozinha4.jpg"
     ],
-    "Salas": [
+    "Sala": [
       "/assets/Sala1.jpg",
       "/assets/Sala2.jpg",
       "/assets/Sala3.jpg",
       "/assets/Sala4.jpg"
     ],
-    "Áreas de Lazer": [
+    "Área de Lazer": [
       "/assets/lazer1.jpg",
       "/assets/lazer2.jpg",
       "/assets/lazer3.jpg"
@@ -49,9 +49,13 @@ export default function Index() {
       "/assets/quarto6.jpg",
       "/assets/Quartinho1.png",
       "/assets/Quartinho2.png",
-      "/assets/Quartinho3.png"
+      "/assets/Quartinho3.png",
+      "/assets/demisuite1.jpg",
+      "/assets/demisuite2.jpg",
+      "/assets/demisuite3.jpg",
+      "/assets/demisuite4.jpg"
     ],
-    "Suítes": [
+    "Suíte": [
       "/assets/Suite1.jpg",
       "/assets/Suite2.jpg",
       "/assets/Suite3.jpg",
@@ -63,12 +67,12 @@ export default function Index() {
       "/assets/Suite8.jpg",
       "/assets/Suite9.jpg"
     ],
-    "Banheiros": [
+    "Banheiro Social": [
       "/assets/Banheiro1.jpg",
       "/assets/Banheiro2.jpg",
       "/assets/Banheiro3.jpg"
     ],
-    "Escritórios": [
+    "Escritório": [
       "/assets/Escritorio1.jpg",
       "/assets/Escritorio2.jpg",
       "/assets/Escritorio3.jpg",
@@ -83,12 +87,6 @@ export default function Index() {
       "/assets/hallGaragem1.jpg",
       "/assets/hallGaragem2.jpg",
       "/assets/hallGaragem3.jpg"
-    ],
-    "Demisuítes": [
-      "/assets/demisuite1.jpg",
-      "/assets/demisuite2.jpg",
-      "/assets/demisuite3.jpg",
-      "/assets/demisuite4.jpg"
     ],
     "Lavanderia": [
       "/assets/lavanderia.jpg"
