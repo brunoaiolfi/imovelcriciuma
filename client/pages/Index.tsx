@@ -66,9 +66,9 @@ import garagem3 from "../assets/garagem3.jpg";
 import garagem4 from "../assets/garagem4.jpg";
 import garagem5 from "../assets/garagem5.jpg";
 
-import hallgaragem1 from "../assets/hallgaragem1.jpg";
-import hallgaragem2 from "../assets/hallgaragem2.jpg";
-import hallgaragem3 from "../assets/hallgaragem3.jpg";
+import hallgaragem1 from "../assets/hallGaragem1.jpg";
+import hallgaragem2 from "../assets/hallGaragem2.jpg";
+import hallgaragem3 from "../assets/hallGaragem3.jpg";
 
 import lavanderia from "../assets/lavanderia.jpg";
 
