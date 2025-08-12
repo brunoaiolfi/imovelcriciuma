@@ -1,4 +1,76 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
+import videoTour from "../assets/videoTour.mp4";
+
+import qrCode from "../assets/qrCodeContato.jpg";
+import externa1 from "../assets/externa1.jpg";
+import externa2 from "../assets/externa2.jpg";
+import externa3 from "../assets/externa3.jpg";
+import externa4 from "../assets/externa4.jpg";
+import externa5 from "../assets/externa5.jpg";
+import externa6 from "../assets/externa6.jpg";
+import externa7 from "../assets/externa7.jpg";
+
+import cozinha1 from "../assets/cozinha1.jpg";
+import cozinha2 from "../assets/cozinha2.jpg";
+import cozinha3 from "../assets/cozinha3.jpg";
+import cozinha4 from "../assets/cozinha4.jpg";
+
+import sala1 from "../assets/sala1.jpg";
+import sala2 from "../assets/sala2.jpg";
+import sala3 from "../assets/sala3.jpg";
+import sala4 from "../assets/sala4.jpg";
+
+import lazer1 from "../assets/lazer1.jpg";
+import lazer2 from "../assets/lazer2.jpg";
+import lazer3 from "../assets/lazer3.jpg";
+
+import quarto1 from "../assets/quarto1.png";
+import quarto2 from "../assets/quarto2.jpg";
+import quarto3 from "../assets/quarto3.png";
+import quarto4 from "../assets/quarto4.jpg";
+import quarto5 from "../assets/quarto5.jpg";
+import quarto6 from "../assets/quarto6.jpg";
+
+import quartinho1 from "../assets/quartinho1.png";
+import quartinho2 from "../assets/quartinho2.png";
+import quartinho3 from "../assets/quartinho3.png";
+
+import demisuite1 from "../assets/demisuite1.jpg";
+import demisuite2 from "../assets/demisuite2.jpg";
+import demisuite3 from "../assets/demisuite3.jpg";
+import demisuite4 from "../assets/demisuite4.jpg";
+
+import suite1 from "../assets/suite1.jpg";
+import suite2 from "../assets/suite2.jpg";
+import suite3 from "../assets/suite3.jpg";
+import suite4 from "../assets/suite4.jpg";
+import suite5 from "../assets/suite5.jpg";
+import suite6 from "../assets/suite6.jpg";
+import suite7 from "../assets/suite7.jpg";
+import suite8 from "../assets/suite8.jpg";
+import suite9 from "../assets/suite9.jpg";
+
+import banheiro1 from "../assets/banheiro1.jpg";
+import banheiro2 from "../assets/banheiro2.jpg";
+import banheiro3 from "../assets/banheiro3.jpg";
+
+import escritorio1 from "../assets/escritorio1.jpg";
+import escritorio2 from "../assets/escritorio2.jpg";
+import escritorio3 from "../assets/escritorio3.jpg";
+import escritorio4 from "../assets/escritorio4.jpg";
+
+import garagem1 from "../assets/garagem1.jpg";
+import garagem2 from "../assets/garagem2.jpg";
+import garagem3 from "../assets/garagem3.jpg";
+import garagem4 from "../assets/garagem4.jpg";
+import garagem5 from "../assets/garagem5.jpg";
+
+import hallgaragem1 from "../assets/hallgaragem1.jpg";
+import hallgaragem2 from "../assets/hallgaragem2.jpg";
+import hallgaragem3 from "../assets/hallgaragem3.jpg";
+
+import lavanderia from "../assets/lavanderia.jpg";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("Tour Virtual");
@@ -7,88 +79,73 @@ export default function Index() {
   const [videoError, setVideoError] = useState(false);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
-  const tabs = ["Tour Virtual", "Exteriores", "Cozinha", "Sala", "Área de Lazer", "Quartos", "Suíte", "Banheiro Social", "Escritório", "Garagem", "Lavanderia"];
+  const tabs = [
+    "Tour Virtual",
+    "Exteriores",
+    "Cozinha",
+    "Sala",
+    "Área de Lazer",
+    "Quartos",
+    "Suíte",
+    "Banheiro Social",
+    "Escritório",
+    "Garagem",
+    "Lavanderia",
+  ];
 
   const galleryImages = {
-    "Tour Virtual": [
-      "/assets/videoTour.mp4"
-    ],
+    "Tour Virtual": [videoTour],
     "Exteriores": [
-      "/assets/externa1.jpg",
-      "/assets/externa2.jpg",
-      "/assets/externa3.jpg",
-      "/assets/externa4.jpg",
-      "/assets/externa5.jpg",
-      "/assets/externa6.jpg",
-      "/assets/externa7.jpg"
+      externa1,
+      externa2,
+      externa3,
+      externa4,
+      externa5,
+      externa6,
+      externa7,
     ],
-    "Cozinha": [
-      "/assets/cozinha1.jpg",
-      "/assets/cozinha2.jpg",
-      "/assets/cozinha3.jpg",
-      "/assets/cozinha4.jpg"
-    ],
-    "Sala": [
-      "/assets/sala1.jpg",
-      "/assets/sala2.jpg",
-      "/assets/sala3.jpg",
-      "/assets/sala4.jpg"
-    ],
-    "Área de Lazer": [
-      "/assets/lazer1.jpg",
-      "/assets/lazer2.jpg",
-      "/assets/lazer3.jpg"
-    ],
+    "Cozinha": [cozinha1, cozinha2, cozinha3, cozinha4],
+    "Sala": [sala1, sala2, sala3, sala4],
+    "Área de Lazer": [lazer1, lazer2, lazer3],
     "Quartos": [
-      "/assets/quarto1.png",
-      "/assets/quarto2.jpg",
-      "/assets/quarto3.png",
-      "/assets/quarto4.jpg",
-      "/assets/quarto5.jpg",
-      "/assets/quarto6.jpg",
-      "/assets/quartinho1.png",
-      "/assets/quartinho2.png",
-      "/assets/quartinho3.png",
-      "/assets/demisuite1.jpg",
-      "/assets/demisuite2.jpg",
-      "/assets/demisuite3.jpg",
-      "/assets/demisuite4.jpg"
+      quarto1,
+      quarto2,
+      quarto3,
+      quarto4,
+      quarto5,
+      quarto6,
+      quartinho1,
+      quartinho2,
+      quartinho3,
+      demisuite1,
+      demisuite2,
+      demisuite3,
+      demisuite4,
     ],
     "Suíte": [
-      "/assets/suite1.jpg",
-      "/assets/suite2.jpg",
-      "/assets/suite3.jpg",
-      "/assets/suite4.jpg",
-      "/assets/suite5.jpg",
-      "/assets/suite6.jpg",
-      "/assets/suite7.jpg",
-      "/assets/suite8.jpg",
-      "/assets/suite9.jpg"
+      suite1,
+      suite2,
+      suite3,
+      suite4,
+      suite5,
+      suite6,
+      suite7,
+      suite8,
+      suite9,
     ],
-    "Banheiro Social": [
-      "/assets/banheiro1.jpg",
-      "/assets/banheiro2.jpg",
-      "/assets/banheiro3.jpg"
-    ],
-    "Escritório": [
-      "/assets/escritorio1.jpg",
-      "/assets/escritorio2.jpg",
-      "/assets/escritorio3.jpg",
-      "/assets/escritorio4.jpg"
-    ],
+    "Banheiro Social": [banheiro1, banheiro2, banheiro3],
+    "Escritório": [escritorio1, escritorio2, escritorio3, escritorio4],
     "Garagem": [
-      "/assets/garagem1.jpg",
-      "/assets/garagem2.jpg",
-      "/assets/garagem3.jpg",
-      "/assets/garagem4.jpg",
-      "/assets/garagem5.jpg",
-      "/assets/hallgaragem1.jpg",
-      "/assets/hallgaragem2.jpg",
-      "/assets/hallgaragem3.jpg"
+      garagem1,
+      garagem2,
+      garagem3,
+      garagem4,
+      garagem5,
+      hallgaragem1,
+      hallgaragem2,
+      hallgaragem3,
     ],
-    "Lavanderia": [
-      "/assets/lavanderia.jpg"
-    ]
+    "Lavanderia": [lavanderia],
   };
 
   const handleContactClick = () => {
@@ -121,18 +178,18 @@ export default function Index() {
               preload="metadata"
               className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
               onError={(e) => {
-                console.error('Erro ao carregar vídeo:', e);
+                console.error("Erro ao carregar vídeo:", e);
                 setVideoError(true);
               }}
-              onLoadStart={() => console.log('Iniciando carregamento do vídeo')}
-              onCanPlay={() => console.log('Vídeo pode ser reproduzido')}
+              onLoadStart={() => console.log("Iniciando carregamento do vídeo")}
+              onCanPlay={() => console.log("Vídeo pode ser reproduzido")}
             >
-              <source src="/assets/videoTour.mp4" type="video/mp4" />
+              <source src={videoTour} type="video/mp4" />
               Seu navegador não suporta vídeos HTML5.
             </video>
           ) : (
             <img
-              src="/assets/frente.jpg"
+              src={require("../assets/frente.jpg")} // imagem frontal (pode importar se preferir)
               alt="Vista frontal da residência"
               className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
             />
@@ -281,36 +338,40 @@ export default function Index() {
                 className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
                 preload="metadata"
               >
-                <source src="/assets/videoTour.mp4" type="video/mp4" />
+                <source src={videoTour} type="video/mp4" />
                 Seu navegador não suporta vídeos HTML5.
               </video>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4">
-              {galleryImages[activeTab as keyof typeof galleryImages]?.map((image, index) => {
-                const hasError = imageErrors.has(image);
-                return (
-                  <div key={index} className="aspect-square">
-                    {!hasError ? (
-                      <img
-                        src={image}
-                        alt={`${activeTab} ${index + 1}`}
-                        className="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-                        onClick={() => setSelectedImage(image)}
-                        onError={(e) => {
-                          console.error(`Erro ao carregar imagem: ${image}`);
-                          setImageErrors(prev => new Set(prev).add(image));
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
-                        <span className="text-gray-500 text-sm">Imagem não disponível</span>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+              {galleryImages[activeTab as keyof typeof galleryImages]?.map(
+                (image, index) => {
+                  const hasError = imageErrors.has(image);
+                  return (
+                    <div key={index} className="aspect-square">
+                      {!hasError ? (
+                        <img
+                          src={image}
+                          alt={`${activeTab} ${index + 1}`}
+                          className="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+                          onClick={() => setSelectedImage(image)}
+                          onError={(e) => {
+                            console.error(`Erro ao carregar imagem: ${image}`);
+                            setImageErrors((prev) => new Set(prev).add(image));
+                            e.currentTarget.style.display = "none";
+                          }}
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
+                          <span className="text-gray-500 text-sm">
+                            Imagem não disponível
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+              )}
             </div>
           )}
         </div>
@@ -355,7 +416,7 @@ export default function Index() {
             <div className="text-center">
               <div className="mb-6">
                 <img
-                  src="/assets/qrCodeContato.jpeg"
+                  src={qrCode}
                   alt="QR Code para WhatsApp"
                   className="w-48 h-48 mx-auto rounded-lg shadow-lg"
                 />
