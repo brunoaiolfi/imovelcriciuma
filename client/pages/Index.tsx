@@ -50,6 +50,7 @@ import suite6 from "../assets/suite6.jpg";
 import suite7 from "../assets/suite7.jpg";
 import suite8 from "../assets/suite8.jpg";
 import suite9 from "../assets/suite9.jpg";
+import suite10 from "../assets/suite10.jpg";
 
 import banheiro1 from "../assets/banheiro1.jpg";
 import banheiro2 from "../assets/banheiro2.jpg";
@@ -132,6 +133,7 @@ export default function Index() {
       suite7,
       suite8,
       suite9,
+      suite10
     ],
     "Banheiro Social": [banheiro1, banheiro2, banheiro3],
     "Escritório": [escritorio1, escritorio2, escritorio3, escritorio4],
@@ -300,11 +302,15 @@ export default function Index() {
               </div>
               <div>
                 <div className="text-sm text-gray-600 mb-1 font-sans">Espaços na garagem</div>
-                <div className="font-medium text-gray-900 font-sans">3</div>
+                <div className="font-medium text-gray-900 font-sans">2</div>
               </div>
               <div>
                 <div className="text-sm text-gray-600 mb-1 font-sans">Localização</div>
                 <div className="font-medium text-gray-900 font-sans">Rua Giovanni Angelo Ortolan, Nº: 65, Santa Catarina</div>
+              </div>
+              <div>
+                <div className="text-sm text-gray-600 mb-1 font-sans">Valor do imóvel</div>
+                <div className="font-medium text-emerald-700 font-sans">R$ 2.390.000,00</div>
               </div>
             </div>
           </div>
