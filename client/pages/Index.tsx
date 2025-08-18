@@ -366,6 +366,9 @@ export default function Index() {
                             setImageErrors((prev) => new Set(prev).add(image));
                             e.currentTarget.style.display = "none";
                           }}
+                          loading="lazy" // Otimização: carregamento preguiçoso
+                          decoding="async" // Otimização: decodificação assíncrona
+                          style={{ backgroundColor: "#f3f3f3" }} // Placeholder de fundo
                         />
                       ) : (
                         <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
