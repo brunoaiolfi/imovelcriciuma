@@ -72,6 +72,8 @@ import hallgaragem2 from "../assets/hallGaragem2.jpg";
 import hallgaragem3 from "../assets/hallGaragem3.jpg";
 
 import lavanderia from "../assets/lavanderia.jpg";
+import planta from "../assets/planta.pdf";
+import plantaImagem from "../assets/planta.png";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("Tour Virtual");
@@ -327,8 +329,8 @@ export default function Index() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`pb-2 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap font-sans ${activeTab === tab
-                    ? "text-amber-700 border-b-2 border-amber-700"
-                    : "text-gray-600 hover:text-amber-700"
+                  ? "text-amber-700 border-b-2 border-amber-700"
+                  : "text-gray-600 hover:text-amber-700"
                   }`}
               >
                 {tab}
@@ -383,6 +385,25 @@ export default function Index() {
               )}
             </div>
           )}
+        </div>
+
+        {/* Gallery Section */}
+        <div className="mb-8 sm:mb-12">
+          <h2 className="text-lg sm:text-xl font-semibold text-amber-800 mb-4 sm:mb-6 font-title">Planta do Imóvel</h2>
+          <div className="w-full flex justify-center">
+            <a
+              href={planta}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <img
+                src={plantaImagem} // coloque aqui a thumbnail da planta (PNG/JPG)
+                alt="Planta do Imóvel"
+                className="w-full rounded-lg shadow-md hover:opacity-90 transition"
+              />
+            </a>
+          </div>
         </div>
 
         {/* Call to Action */}
